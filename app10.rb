@@ -1,0 +1,20 @@
+# encoding: cp1251
+
+if (Gem.win_platform?)
+        Encoding.default_external = Encoding.find(Encoding.locale_charmap)
+        Encoding.default_internal = __ENCODING__
+
+        [STDIN, STDOUT].each do |io|
+                io.set_encoding(Encoding.default_external, Encoding.default_internal)
+        end
+end
+
+print " акую сумму будем откладывать в мес€ц: "
+x = gets.to_f
+
+print "—колько мес€цев: "
+y = gets.to_i
+
+1.upto(y) do |mm|
+	puts "Ќакоплени€ за #{mm} мес€ц: #{x*mm}"		
+end	
